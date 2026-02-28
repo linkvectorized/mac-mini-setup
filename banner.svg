@@ -1,43 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200">
-  <defs>
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0a0a0a"/>
-      <stop offset="100%" stop-color="#111111"/>
-    </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-  </defs>
-
-  <!-- Background -->
-  <rect width="800" height="200" fill="url(#bgGrad)"/>
-
-  <!-- Subtle top border -->
-  <line x1="0" y1="0" x2="800" y2="0" stroke="#333" stroke-width="1"/>
-
-  <!-- Terminal window -->
-  <g transform="translate(400, 100)">
-    <rect x="-280" y="-65" width="560" height="120" rx="6" fill="#0d0d0d" stroke="#2a2a2a" stroke-width="1"/>
-    <!-- Title bar -->
-    <rect x="-280" y="-65" width="560" height="22" rx="6" fill="#1a1a1a"/>
-    <rect x="-280" y="-54" width="560" height="11" fill="#1a1a1a"/>
-    <circle cx="-258" cy="-54" r="5" fill="#3a3a3a"/>
-    <circle cx="-241" cy="-54" r="5" fill="#3a3a3a"/>
-    <circle cx="-224" cy="-54" r="5" fill="#3a3a3a"/>
-    <text x="0" y="-49" text-anchor="middle" font-family="monospace" font-size="9" fill="#555">setup.sh</text>
-
-    <!-- Check lines -->
-    <text x="-258" y="-26" font-family="monospace" font-size="10" fill="#444">[<tspan fill="#00cc44">✓</tspan>]  xcode command line tools</text>
-    <text x="-258" y="-10" font-family="monospace" font-size="10" fill="#444">[<tspan fill="#00cc44">✓</tspan>]  homebrew</text>
-    <text x="-258" y="6" font-family="monospace" font-size="10" fill="#444">[<tspan fill="#00cc44">✓</tspan>]  gh  node  go  jq  git</text>
-    <text x="-258" y="22" font-family="monospace" font-size="10" fill="#444">[<tspan fill="#00cc44">✓</tspan>]  claude code</text>
-    <text x="-258" y="38" font-family="monospace" font-size="10" fill="#444">[<tspan fill="#00cc44">✓</tspan>]  brave  cursor</text>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 160" width="800" height="160">
+  <rect width="800" height="160" fill="#0d0d0d"/>
+  <line x1="0" y1="0" x2="800" y2="0" stroke="#222" stroke-width="1"/>
 
   <!-- Title -->
-  <text x="400" y="178" text-anchor="middle" font-family="monospace" font-size="10" fill="#333">mac-mini-setup — linkvectorized</text>
+  <text x="400" y="60" text-anchor="middle" font-family="monospace" font-size="28" font-weight="bold" fill="#eeeeee">mac-mini-setup</text>
+  <text x="400" y="90" text-anchor="middle" font-family="monospace" font-size="12" fill="#444">one script. full dev environment.</text>
+
+  <!-- Divider -->
+  <line x1="300" y1="108" x2="500" y2="108" stroke="#222" stroke-width="1"/>
+
+  <!-- Footer -->
+  <text x="400" y="132" text-anchor="middle" font-family="monospace" font-size="10" fill="#333">linkvectorized</text>
 </svg>
