@@ -53,7 +53,7 @@ echo ""
 
 # 3. Brew packages
 printf "3. Brew packages\n"
-BREW_PACKAGES=(gh node go jq git)
+BREW_PACKAGES=(bash gh node go jq git)
 for pkg in "${BREW_PACKAGES[@]}"; do
   if command -v "$pkg" &>/dev/null; then
     printf "   $PASS $pkg — $(command -v "$pkg")\n"
@@ -81,10 +81,10 @@ else
   printf "   $FAIL .bash_profile not found — will link\n"
 fi
 
-if [ "$SHELL" = "/bin/bash" ]; then
+if [ "$SHELL" = "/opt/homebrew/bin/bash" ]; then
   printf "   $PASS default shell is already bash\n"
 else
-  printf "   $FAIL default shell is $SHELL — will switch to /bin/bash\n"
+  printf "   $FAIL default shell is $SHELL — will switch to /opt/homebrew/bin/bash\n"
 fi
 
 echo ""
@@ -198,8 +198,8 @@ else
   printf "   $PASS .bash_profile already linked\n"
 fi
 
-if [ "$SHELL" != "/bin/bash" ]; then
-  chsh -s /bin/bash
+if [ "$SHELL" != "/opt/homebrew/bin/bash" ]; then
+  chsh -s /opt/homebrew/bin/bash
   printf "   $PASS default shell switched to bash — restart terminal after setup\n"
 else
   printf "   $PASS default shell is already bash\n"
