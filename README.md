@@ -22,7 +22,7 @@ Bootstraps a fresh Mac with a full dev environment.
 - Claude Code
 - Brave Browser
 - Cursor
-- Switches default shell to bash (macOS defaults to zsh — this script is bash-based)
+- Installs bash 5 via Homebrew and sets it as the default shell (macOS ships bash 3.2 due to licensing — this gets you the real thing)
 
 ## Run it
 
