@@ -130,6 +130,12 @@ else
   printf "   $FAIL Cursor not installed — will install\n"
 fi
 
+if [ -d "/Applications/Bitwarden.app" ]; then
+  printf "   $PASS Bitwarden installed\n"
+else
+  printf "   $FAIL Bitwarden not installed — will install\n"
+fi
+
 echo ""
 printf "${BOLD}── Starting install ──${NC}\n\n"
 
@@ -257,6 +263,13 @@ if [ -d "/Applications/Cursor.app" ]; then
 else
   brew install --cask cursor &>/dev/null &
   spinner $! "Installing Cursor..."
+fi
+
+if [ -d "/Applications/Bitwarden.app" ]; then
+  printf "   $PASS Bitwarden already installed\n"
+else
+  brew install --cask bitwarden &>/dev/null &
+  spinner $! "Installing Bitwarden..."
 fi
 
 # ── Done ──────────────────────────────────────────────────────────────────────
