@@ -64,8 +64,8 @@ done
 
 echo ""
 
-# 4. Dotfiles
-printf "4. Dotfiles\n"
+# 4. Shell config
+printf "4. Shell config\n"
 DOTFILES_DIR="$HOME/vset"
 if [ -d "$DOTFILES_DIR/.git" ]; then
   printf "   $PASS vset repo exists at $DOTFILES_DIR\n"
@@ -179,7 +179,7 @@ for pkg in "${BREW_PACKAGES[@]}"; do
   fi
 done
 
-# ── 4. Dotfiles ───────────────────────────────────────────────────────────────
+# ── 4. Shell config ───────────────────────────────────────────────────────────
 SETUP_REPO="https://github.com/linkvectorized/vset.git"
 
 echo ""

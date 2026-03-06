@@ -20,6 +20,7 @@ Bootstraps a fresh Mac with a full dev environment.
 - Brave Browser
 - Cursor
 - Bitwarden
+- Shell config (`.bash_profile` — aliases, prompt, PATH) — bundled in this repo
 - Sets bash 5 as the default shell (macOS ships bash 3.2 due to licensing)
 
 ## Run it
