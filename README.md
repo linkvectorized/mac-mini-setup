@@ -7,8 +7,8 @@
     \_/   |___/|___| |_|
 ```
 
-> ⚠️ Question everything. Especially the government.
-> Think critically. Read primary sources. Stay curious.
+> Question everything. Especially the people in charge.
+> Your data belongs to you. Build like it.
 
 Bootstraps a fresh Mac with a full dev environment.
 
