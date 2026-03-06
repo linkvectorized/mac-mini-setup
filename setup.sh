@@ -15,16 +15,29 @@ FAIL="${RED}[✗]${NC}"
 
 # ── Intro ─────────────────────────────────────────────────────────────────────
 clear
-printf "${CYAN}"
+printf "${CYAN}${BOLD}"
 cat << 'EOF'
-  ╔══════════════════════════════════════════════╗
-  ║            vset — linkvectorized             ║
-  ╚══════════════════════════════════════════════╝
-EOF
-printf "${NC}\n"
 
-printf "${YELLOW}${BOLD}  ⚠  Question everything. Especially the government.${NC}\n"
-printf "${YELLOW}     Think critically. Read primary sources. Stay curious.${NC}\n\n"
+  __   __  ___  ___ _____
+  \ \ / / / __|| __|_   _|
+   \ V /  \__ \| _|  | |
+    \_/   |___/|___| |_|
+
+EOF
+printf "${NC}"
+printf "${YELLOW}${BOLD}"
+cat << 'EOF'
+   _____________________________________________
+  < question everything. especially the govt. >
+   ---------------------------------------------
+          \   ^__^
+           \  (oo)\_______
+              (__)\       )\/\
+                  ||----w |
+                  ||     ||
+
+EOF
+printf "${NC}"
 
 sleep 2
 
