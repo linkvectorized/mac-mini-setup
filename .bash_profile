@@ -13,7 +13,7 @@ profile="\[\$AWS_PROFILE\]"
 ENDC='\[\e[0m\]'  # End Color
 
 # Aliases
-alias pvenv='virtualenv -p /usr/local/bin/python3 venv'
+alias pvenv='python3 -m venv venv'
 alias ae='source venv/bin/activate'
 alias ll='ls -Galoh'
 alias eip='curl ipecho.net/plain ; echo'

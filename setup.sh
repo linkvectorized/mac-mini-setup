@@ -66,7 +66,7 @@ echo ""
 
 # 3. Brew packages
 printf "3. Brew packages\n"
-BREW_PACKAGES=(bash gh node go jq git)
+BREW_PACKAGES=(bash gh node go python jq git)
 for pkg in "${BREW_PACKAGES[@]}"; do
   if command -v "$pkg" &>/dev/null; then
     printf "   $PASS $pkg — $(command -v "$pkg")\n"
@@ -317,7 +317,8 @@ printf "    bash:      $(/opt/homebrew/bin/bash --version | head -1)\n"
 printf "    brew:      $(brew --version | head -1)\n"
 printf "    gh:        $(gh --version | head -1)\n"
 printf "    node:      $(node --version)\n"
-printf "    go:        $(go version)\n"
+printf "    go:        $(go version)
+    python:    $(python3 --version)\n"
 printf "    claude:    $(claude --version 2>/dev/null || echo 'check manually')\n"
 printf "    brave:     $([ -d '/Applications/Brave Browser.app' ] && echo 'installed' || echo 'not found')\n"
 printf "    cursor:    $([ -d '/Applications/Cursor.app' ] && echo 'installed' || echo 'not found')\n"
