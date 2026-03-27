@@ -16,7 +16,7 @@ Bootstraps a fresh Mac with a full dev environment.
 
 - Xcode Command Line Tools
 - Homebrew
-- bash 5, gh, node, go, jq, git
+- bash 5, gh, node, go, python, jq, git
 - Claude Code
 - Brave Browser
 - Cursor
