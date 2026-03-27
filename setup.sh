@@ -67,9 +67,12 @@ echo ""
 # 3. Brew packages
 printf "3. Brew packages\n"
 BREW_PACKAGES=(bash gh node go python jq git)
+# map formula name -> binary name where they differ
+declare -A BREW_BIN=([python]=python3)
 for pkg in "${BREW_PACKAGES[@]}"; do
-  if command -v "$pkg" &>/dev/null; then
-    printf "   $PASS $pkg — $(command -v "$pkg")\n"
+  bin="${BREW_BIN[$pkg]:-$pkg}"
+  if command -v "$bin" &>/dev/null; then
+    printf "   $PASS $pkg — $(command -v "$bin")\n"
   else
     printf "   $FAIL $pkg — not installed\n"
   fi
