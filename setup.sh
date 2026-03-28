@@ -152,7 +152,7 @@ fi
 echo ""
 printf "${BOLD}── Starting install ──${NC}\n\n"
 
-# spinner
+# spinner — animates while a backgrounded pid runs, then checks its exit code
 spinner() {
   local pid=$1
   local msg=$2
@@ -163,7 +163,12 @@ spinner() {
     i=$(( (i+1) % ${#frames[@]} ))
     sleep 0.1
   done
-  printf "\r   $PASS $msg\n"
+  if wait "$pid"; then
+    printf "\r   $PASS $msg\n"
+  else
+    printf "\r   $FAIL $msg\n"
+    return 1
+  fi
 }
 
 # ── 1. Xcode Command Line Tools ───────────────────────────────────────────────
@@ -194,7 +199,7 @@ for pkg in "${BREW_PACKAGES[@]}"; do
     printf "   $PASS $pkg already installed\n"
   else
     brew install "$pkg" &>/dev/null &
-    spinner $! "Installing $pkg..."
+    spinner $! "Installing $pkg..." || true
   fi
 done
 
@@ -204,10 +209,10 @@ SETUP_REPO="https://github.com/linkvectorized/vset.git"
 echo ""
 if [ ! -d "$DOTFILES_DIR/.git" ]; then
   git clone "$SETUP_REPO" "$DOTFILES_DIR" &>/dev/null &
-  spinner $! "Cloning vset..."
+  spinner $! "Cloning vset..." || true
 else
   git -C "$DOTFILES_DIR" pull &>/dev/null &
-  spinner $! "vset up to date"
+  spinner $! "vset up to date" || true
 fi
 
 for df in "${DOTFILES[@]}"; do
@@ -235,7 +240,7 @@ fi
 echo ""
 if ! command -v claude &>/dev/null; then
   npm install -g @anthropic-ai/claude-code &>/dev/null &
-  spinner $! "Installing Claude Code..."
+  spinner $! "Installing Claude Code..." || true
 else
   printf "   $PASS Claude Code already installed\n"
 fi
@@ -285,21 +290,21 @@ if [ -d "/Applications/Brave Browser.app" ]; then
   printf "   $PASS Brave Browser already installed\n"
 else
   brew install --cask brave-browser &>/dev/null &
-  spinner $! "Installing Brave Browser..."
+  spinner $! "Installing Brave Browser..." || true
 fi
 
 if [ -d "/Applications/Cursor.app" ]; then
   printf "   $PASS Cursor already installed\n"
 else
   brew install --cask cursor &>/dev/null &
-  spinner $! "Installing Cursor..."
+  spinner $! "Installing Cursor..." || true
 fi
 
 if [ -d "/Applications/Bitwarden.app" ]; then
   printf "   $PASS Bitwarden already installed\n"
 else
   brew install --cask bitwarden &>/dev/null &
-  spinner $! "Installing Bitwarden..."
+  spinner $! "Installing Bitwarden..." || true
 fi
 
 # ── Done ──────────────────────────────────────────────────────────────────────
@@ -320,8 +325,8 @@ printf "    bash:      $(/opt/homebrew/bin/bash --version | head -1)\n"
 printf "    brew:      $(brew --version | head -1)\n"
 printf "    gh:        $(gh --version | head -1)\n"
 printf "    node:      $(node --version)\n"
-printf "    go:        $(go version)
-    python:    $(python3 --version)\n"
+printf "    go:        $(go version)\n"
+printf "    python:    $(python3 --version)\n"
 printf "    claude:    $(claude --version 2>/dev/null || echo 'check manually')\n"
 printf "    brave:     $([ -d '/Applications/Brave Browser.app' ] && echo 'installed' || echo 'not found')\n"
 printf "    cursor:    $([ -d '/Applications/Cursor.app' ] && echo 'installed' || echo 'not found')\n"
