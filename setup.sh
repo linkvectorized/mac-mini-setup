@@ -68,9 +68,9 @@ echo ""
 printf "3. Brew packages\n"
 BREW_PACKAGES=(bash gh node go python jq git)
 # map formula name -> binary name where they differ
-declare -A BREW_BIN=([python]=python3)
+brew_bin() { case "$1" in python) echo python3;; *) echo "$1";; esac; }
 for pkg in "${BREW_PACKAGES[@]}"; do
-  bin="${BREW_BIN[$pkg]:-$pkg}"
+  bin="$(brew_bin "$pkg")"
   if command -v "$bin" &>/dev/null; then
     printf "   $PASS $pkg — $(command -v "$bin")\n"
   else
