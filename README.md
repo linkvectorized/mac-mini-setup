@@ -38,6 +38,10 @@ A few things that can't be automated — you'll be prompted for these during the
 - **Anthropic API key** — for Claude Code (get one at https://console.anthropic.com)
 - **Password** — sudo access for shell switching
 
+## Heads up
+
+- Claude Code is configured with `skipDangerousModePermissionPrompt: true` — safety prompts are disabled by default. If you fork this, review `setup.sh` and decide if that's right for your setup.
+
 ---
 
 *Stay curious. Question narratives. Build cool things.*
